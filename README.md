@@ -7,3 +7,6 @@ When pushing to the git repo...
 	2. Commit files with a descriptive log of what you are committing
 	3. Pull to make sure you have the updated files from the remote repository
 	4. Finally, push your repository
+
+This is the change that Nikolai made.
+It's a test change, not permanent.
