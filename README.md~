@@ -1,4 +1,5 @@
-# Sh0pLyf3 Hello_World
+# Sh0pLyf3
+The development repository for $h0pLyf3.
 
 GENERAL GUIDLINES FOR GITHUB:
 When pushing to the git repo...
@@ -8,9 +9,8 @@ When pushing to the git repo...
 	4. Finally, push your repository
 
 This is the change that Nikolai made.
-It's a test change, not permanent.	
-Andrew' first edit.
-
+It's a test change, not permanent.
+	
 Useful commands for Git:
 git status: returns the status of the repos, useful to check if your repos is up to date
 git add -a: adds all the files in your repos for next commit/push, can add files individually by typing them out sepearted with commas
@@ -25,4 +25,3 @@ git commit -m "Nice commit message"
 git pull
 *** Fix merge conflicts if they exist
 git push
-
