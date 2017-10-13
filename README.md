@@ -1,5 +1,4 @@
-# Sh0pLyf3
-The development repository for $h0pLyf3.
+# Sh0pLyf3 Hello_World
 
 GENERAL GUIDLINES FOR GITHUB:
 When pushing to the git repo...
@@ -26,3 +25,4 @@ git commit -m "Nice commit message"
 git pull
 *** Fix merge conflicts if they exist
 git push
+
