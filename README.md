@@ -15,5 +15,10 @@ git commit -m: Commits your changes. What you type after -m is the description o
 git pull origin/branch_name: pull command
 git push origin/branch_name: push command
 
-Test line here, because you know...
+Workflow:
 
+git add -A
+git commit -m "Nice commit message"
+git pull
+*** Fix merge conflicts if they exist
+git push
