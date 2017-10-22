@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'login/style.css' %}" />
+  <meta charset="utf-8">
+  <title>{% block title %}#$H0PLYF3{% endblock %}</title>
+</head>
+<body>
+  <header>
+    {% if user.is_authenticated %}
+	  <h1>Welcome, {{ user.username}}!</h1>
+      You can navigate to your recipes and shopping list from here: <br />
+      <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+	  <h1> Hello, please login!<h1>
+      <a href="{% url 'login' %}">login</a>
+    {% endif %}
+  </header>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>
