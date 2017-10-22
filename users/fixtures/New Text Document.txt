@@ -1,0 +1,19 @@
+[
+  {
+    "model": "users.Users",
+    
+    "fields": {
+      "userName": "Andrew",
+      "userId": "1"
+    }
+  },
+ {
+    "model": "users.Users",
+    
+    "fields": {
+      "userName": "Connor",
+      "userId": "2"
+    }
+  },
+ 
+]
