@@ -1,5 +1,8 @@
+{% load static %}
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'login/style.css' %}" />
+  <meta charset="utf-8">
   <title>{% block title %}ShopLyfe Registration{% endblock %}</title>
 </head>
 {% block content %}
@@ -8,13 +11,14 @@
     {% csrf_token %}
     {% for field in form %}
       <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
+        {{ field.label_tag }}
+        {{ field }}</p>
+		<p>
         {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
+          <small style="color: black; font-size: 0.5em">{{ field.help_text }}</small>
         {% endif %}
         {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
+          <p><small style="color: red">{{ error }}</small></p>
         {% endfor %}
       </p>
     {% endfor %}
