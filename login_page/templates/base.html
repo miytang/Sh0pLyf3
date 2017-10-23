@@ -2,22 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Welcome{% endblock %}</title>
+  <title>{% block title %}Welcome to ShopLyfe!{% endblock %}</title>
 </head>
 <body>
   <header>
-    {% if user.is_authenticated %}
-	  <h1>Welcome, {{ user.username}}!</h1>
-      You can navigate to your recipes and shopping list from here: <br />
-      <a href="{% url 'logout' %}">logout</a>
-    {% else %}
-	  <h1> Hello, please login!<h1>
-      <a href="{% url 'login' %}">login</a>
-    {% endif %}
+	  <h1> Welcome to ShopLyfe!<h1>
   </header>
+  <h2> Please <a href="{% url 'login' %}">login</a> <h2>
+  <h2> or <a href="{% url 'signup' %}">sign up</a> <h2>
   <hr>
   <main>
     {% block content %}
+	ShopLyfe
     {% endblock %}
   </main>
   <hr>

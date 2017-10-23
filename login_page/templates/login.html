@@ -1,7 +1,9 @@
-{% extends 'base.html' %}
+<html>
 
-{% block title %}Login{% endblock %}
-
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Welcome to ShopLyfe!{% endblock %}</title>
+</head>
 {% block content %}
   <h2>Login</h2>
   <form method="post">
@@ -10,3 +12,4 @@
     <button type="submit">Login</button>
   </form>
 {% endblock %}
+</html>

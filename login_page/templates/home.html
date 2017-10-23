@@ -1,7 +1,15 @@
-{% extends 'base.html' %}
-
-{% block title %}Login{% endblock %}
-
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}ShopLyfe Homepage{% endblock %}</title>
+</head>
+<header>
+	<h1>Welcome, {{ user.first_name }}!</h1>
+    You can navigate to your recipes and shopping list from here: <br/>
+    <a href="{% url 'logout' %}">logout</a>
+</header>
 {% block content %}
   <h2>Homepage</h2>
 {% endblock %}
+</html>
