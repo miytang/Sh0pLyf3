@@ -8,14 +8,6 @@
 </head>
 <body>
   <header>
-    {% if user.is_authenticated %}
-	  <h1>Welcome, {{ user.username}}!</h1>
-      You can navigate to your recipes and shopping list from here: <br />
-      <a href="{% url 'logout' %}">logout</a>
-    {% else %}
-	  <h1> Hello, please login!<h1>
-      <a href="{% url 'login' %}">login</a>
-    {% endif %}
   </header>
   <main>
     {% block content %}
