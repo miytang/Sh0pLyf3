@@ -6,6 +6,9 @@
   <title>{% block title %}ShopLyfe Registration{% endblock %}</title>
 </head>
 {% block content %}
+<body class="vertical">
+  <span class="horizontal">
+<div id="content">
   <h2>Sign up</h2>
   <form method="post">
     {% csrf_token %}
@@ -24,5 +27,8 @@
     {% endfor %}
     <button type="submit">Sign up</button>
   </form>
+  <body class="vertical">
+  <span class="horizontal">
+<div id="content">
 {% endblock %}
 </html>
