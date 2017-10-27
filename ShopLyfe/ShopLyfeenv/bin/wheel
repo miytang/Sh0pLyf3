@@ -1,4 +1,4 @@
-#!/home/ubuntu/ShopLyfe/ShopLyfeenv/bin/python3
+#!"/Users/Connor/Desktop/UCSC/Fall 2017/CMPS 115/Sh0pLyf3/Development Git/Sh0pLyf3/ShopLyfe/ShopLyfeenv/bin/python3.6"
 
 # -*- coding: utf-8 -*-
 import re
