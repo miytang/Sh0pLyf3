@@ -36,7 +36,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/Connor/Desktop/UCSC/Fall 2017/CMPS 115/Sh0pLyf3/Development Git/Sh0pLyf3/ShopLyfe/ShopLyfeenv"
+set -gx VIRTUAL_ENV "/home/ubuntu/ShopLyfe/ShopLyfeenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

@@ -7,7 +7,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/Users/Connor/Desktop/UCSC/Fall 2017/CMPS 115/Sh0pLyf3/Development Git/Sh0pLyf3/ShopLyfe/ShopLyfeenv"
+setenv VIRTUAL_ENV "/home/ubuntu/ShopLyfe/ShopLyfeenv"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"

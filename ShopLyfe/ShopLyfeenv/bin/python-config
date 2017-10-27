@@ -1,4 +1,4 @@
-#!/Users/Connor/Desktop/UCSC/Fall 2017/CMPS 115/Sh0pLyf3/Development Git/Sh0pLyf3/ShopLyfe/ShopLyfeenv/bin/python
+#!/home/ubuntu/ShopLyfe/ShopLyfeenv/bin/python
 
 import sys
 import getopt

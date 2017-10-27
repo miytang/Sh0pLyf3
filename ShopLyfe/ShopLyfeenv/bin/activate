@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/Connor/Desktop/UCSC/Fall 2017/CMPS 115/Sh0pLyf3/Development Git/Sh0pLyf3/ShopLyfe/ShopLyfeenv"
+VIRTUAL_ENV="/home/ubuntu/ShopLyfe/ShopLyfeenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
