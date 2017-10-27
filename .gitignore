@@ -1,1 +1,10 @@
 login_page/ShopLyfe/__pycache__/
+ShopLyfe/__init__.pyc
+ShopLyfe/forms.pyc
+ShopLyfe/settings.pyc
+ShopLyfe/urls.pyc
+ShopLyfe/views.pyc
+ShopLyfe/wsgi.pyc
+homepage/__init__.pyc
+homepage/urls.pyc
+homepage/views.pyc
