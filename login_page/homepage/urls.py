@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
-	url(r'^recipes/$', views.recipes, name='recipes'),
+	url(r'^recipes/(?P<recipe_id>[0-9]+)/$', views.recipes, name='recipes'),
 	url(r'^shopping_list/$', views.shopping_list, name='shopping_list'),
 ]
