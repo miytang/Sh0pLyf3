@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
+  <meta charset="utf-8">
+  <title>{% block title %}Shopping List{% endblock %}</title>
+</head>
+<body class="vertical">
+  <span class="horizontal">
+<div id="content">
+<header>
+    {% block content %}
+        {% if user.is_authenticated %}
+            <h2>Here is your shopping list:</h2>
+            <p>1. poop</p>
+            <p><a href="{% url 'recipes' %}">Recipes</a></p>
+            <p><a href="{% url 'home' %}">Home</a></p>
+            <p><a href="{% url 'logout' %}">Logout</a></p>
+		{% else %}
+            <h1>Hello, please login!<h1>
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+     {% endblock %}
+</header>
+</div>
+</span>
+</body>
+</html>
