@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['54.241.142.236', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'recipe.apps.PollsConfig',
+    # 'recipe.apps.PollsConfig',
     'homepage.apps.HomepageConfig',
     'loginpage.apps.LoginpageConfig',
     'django.contrib.admin',
