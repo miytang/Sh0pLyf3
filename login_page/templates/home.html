@@ -11,6 +11,8 @@
 <header>
 	<h1>Welcome, {{ user.first_name }}!</h1>
     <p>You can navigate to your recipes and shopping list from here:</p>
+	<h3><a href="{% url 'recipes' %}">Recipes</a></h3>
+	<h3><a href="{% url 'shopping_list' %}">Shopping List</a></h3>
     <h3><a href="{% url 'logout' %}">logout</a></h3>
 </header>
 </div>
