@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
   <meta charset="utf-8">
-  <title>{% block title %}ShopLyfe Homepage{% endblock %}</title>
+  <title>{% block title %}Recipes{% endblock %}</title>
 </head>
 <body class="vertical">
   <span class="horizontal">
@@ -11,10 +11,10 @@
 <header>
     {% block content %}
         {% if user.is_authenticated %}
-            <h1>Welcome, {{ user.username}}!</h1>
-            <p>You can navigate to your recipes and shopping list from here:</p>
-            <p><a href="{% url 'recipes' %}">Recipes</a></p>
+            <h2>Here are your recipes:</h2>
+            <p>1. poop</p>
             <p><a href="{% url 'shopping_list' %}">Shopping List</a></p>
+            <p><a href="{% url 'home' %}">Home</a></p>
             <p><a href="{% url 'logout' %}">Logout</a></p>
         {% else %}
             <h1>Hello, please login!<h1>
