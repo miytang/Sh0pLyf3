@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
 	url(r'signup/$', views.signup, name='signup'),
     url(r'^admin/', admin.site.urls),
+    url(r'^recipe/', include('recipe.urls')),
 ]
