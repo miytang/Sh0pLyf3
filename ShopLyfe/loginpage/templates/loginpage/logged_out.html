@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'loginpage/style.css' %}" />
+  <meta charset="utf-8">
+  <title>{% block title %}Logout{% endblock %}</title>
+</head>
+
+{% block content %}
+<body class="vertical">
+  <span class="horizontal">
+<div id="content">
+  <h2>Logged out</h2>
+  <p>You have been successfully logged out.</p>
+  <p><a href="{% url 'login' %}">Log in</a> again</p>
+  <p>Or go <a href="{% url 'start' %}">home</a></p>
+</div>
+</span>
+</body>
+{% endblock %}
+</html>
