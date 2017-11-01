@@ -1,0 +1,9 @@
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
+  <meta charset="utf-8">
+  <title>{% block title %}{{ recipe.recipe_name}} Details{% endblock %}</title>
+</head>
+
+<h1> Here is your recipe form. </h1>
