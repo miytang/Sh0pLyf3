@@ -12,7 +12,7 @@
 <header>
     {% block content %}
         {% if user.is_authenticated %}
-            <h1>Welcome, {{ user.username}}!</h1>
+            <h1>Welcome, {{ user.first_name}}!</h1>
             <p>You can navigate to your recipes and shopping list from here:</p>
             <p><a href="{% url 'recipes_view' %}">Recipes</a></p>
             <p><a href="{% url 'shopping_list' %}">Shopping List</a></p>
