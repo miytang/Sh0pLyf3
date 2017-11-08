@@ -6,16 +6,25 @@
   <title>{% block title %}Recipes{% endblock %}</title>
 </head>
 <body class="vertical">
-  <span class="horizontal">
+<span class="horizontal">
 <div id="content">
 <header>
     {% block content %}
         {% if user.is_authenticated %}
             <h2>Here are your recipes:</h2>
-            <p>1. poop</p>
-            <p><a href="{% url 'shopping_list' %}">Shopping List</a></p>
-            <p><a href="{% url 'home' %}">Home</a></p>
-            <p><a href="{% url 'logout' %}">Logout</a></p>
+            {% if latest_recipe_list %}
+			<ol>
+			{% for recipe in latest_recipe_list %}
+				<li><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></li>
+			{% endfor %}			
+				<font size = 4><a href="{%url 'add_recipe' %}">Add Recipes +</a></font>
+			</ol>
+			{% else %}
+				<p>No recipes are available.</p>
+			{% endif %}
+            <h3><p><a href="{% url 'shopping_list' %}">Shopping List</a> </p> </h3>
+            <font size = 4><a href="{% url 'home' %}">Home</a> <br />
+            <a href="{% url 'logout' %}">Logout</a></p></font>
         {% else %}
             <h1>Hello, please login!<h1>
             <a href="{% url 'login' %}">Login</a>

@@ -1,0 +1,18 @@
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
+  <meta charset="utf-8">
+  <title>{% block title %}{{ recipe.recipe_name}} Details{% endblock %}</title>
+</head>
+
+<h1> Here is your Ingredients form. </h1>
+{% block content %}
+    <h1>New Ingredient</h1>
+    <form method="POST">
+	{% csrf_token %}
+        {{ ingredient_form.as_p }}
+        <button type="submit" class="save btn btn-default">Done</button>
+		<h3><p><a href="{% url 'recipes_view' %}">Recipes</a></p>
+    </form>
+{% endblock %}
