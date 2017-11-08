@@ -12,9 +12,9 @@
     {% block content %}
         {% if user.is_authenticated %}
             <h2>Here is your shopping list:</h2>
-			{% if latest_recipe_list %}
+			{% if user.recipe_set.all %}
 			<ol>
-				{% for recipe in latest_recipe_list %}
+				{% for recipe in user.recipe_set.all %}
 					<h2><u><li> Recipe: {{recipe.recipe_name}}</li></u></h2>
 					{% for ingredient in recipe.ingredient_set.all %}
 						Name: {{ ingredient.ingredient_name }} <br />

@@ -12,9 +12,9 @@
     {% block content %}
         {% if user.is_authenticated %}
             <h2>Here are your recipes:</h2>
-            {% if latest_recipe_list %}
+            {% if user.recipe_set.all %}
 			<ol>
-			{% for recipe in latest_recipe_list %}
+      {% for recipe in user.recipe_set.all %}
 				<li><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></li>
 			{% endfor %}			
 				<font size = 4><a href="{%url 'add_recipe' %}">Add Recipes +</a></font>
