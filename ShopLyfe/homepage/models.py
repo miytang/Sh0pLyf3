@@ -1,10 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 # Recipes model
 # Can make a form from this, probably
 class Recipe(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 	recipe_name = models.CharField(max_length=200)
 	recipe_tag = models.CharField(max_length=200)
 	prep_time = models.IntegerField(default=0)
@@ -25,7 +27,7 @@ class Recipe(models.Model):
 # Each ingredient belongs to a recipe
 # Can the same ingredient belong to multiple recipes???
 class Ingredient(models.Model):
-	recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+	recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, blank=True, null=True)
 	null=True
 	ingredient_name = models.CharField(max_length=200)
 	ingredient_quantity = models.DecimalField(max_digits=5, decimal_places=2)
