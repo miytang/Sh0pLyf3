@@ -17,10 +17,10 @@
 			{% for recipe in latest_recipe_list %}
 				<li><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></li>
 			{% endfor %}			
-				<font size = 4><a href="{%url 'recipe_form' %}">Add Recipes +</a></font>
+				<font size = 4><a href="{%url 'add_recipe' %}">Add Recipes +</a></font>
 			</ol>
 			{% else %}
-				<p>No recipes] are available.</p>
+				<p>No recipes are available.</p>
 			{% endif %}
             <h3><p><a href="{% url 'shopping_list' %}">Shopping List</a> </p> </h3>
             <font size = 4><a href="{% url 'home' %}">Home</a> <br />
