@@ -12,18 +12,16 @@
     {% block content %}
         {% if user.is_authenticated %}
             <h2>Here is your shopping list:</h2>
-			{% if latest_recipe_list %}
+			{% if add_to_shopping_list %}
 			<ol>
-				{% for recipe in latest_recipe_list %}
-				{% if recipe.my_field > 0 %}	
-					<h2><u><li> Recipe: {{recipe.recipe_name}}</li> 
-							
-					<br>			
-					{% for ingredient in recipe.ingredient_set.all %}
-					{{ ingredient.ingredient_name }} x {{ recipe.my_field }}	</br>
-						
-					{% endfor %}
-				{% endif %}
+				{% for recipe in add_to_shopping_list %}
+				
+					<h2><u><li> <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form></li></u></h2>
+					
 				{% endfor %}
 			</ol>
 			{% else %}

@@ -104,8 +104,7 @@ def add_ingredient(request, recipe_id):
 			return redirect('recipes_view')
 	else:
 		ingredient_form = IngredientForm()
-	return render(request, 'homepage/ingredient_form.html', {'ingredient_form': ingredient_form})                
-       
+        return render(request, 'homepage/ingredient_form.html', {'ingredient_form': ingredient_form})        
 
 class ListUpdate(UpdateView):
     
