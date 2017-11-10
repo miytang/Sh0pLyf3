@@ -1,37 +1,27 @@
-{% load static %}
+{% extends './base.html' %}
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
-  <meta charset="utf-8">
   <title>{% block title %}Recipes{% endblock %}</title>
 </head>
 <body class="vertical">
-<span class="horizontal">
-<div id="content">
-<header>
-    {% block content %}
-        {% if user.is_authenticated %}
-            <h2>Here are your recipes:</h2>
+  <span class="horizontal">
+    <div id="content">
+      <header>
+        {% block content %}
+          <h2>Here are your recipes, {{ user.username}}:</h2>
             {% if latest_recipe_list %}
-			<ol>
-			{% for recipe in latest_recipe_list %}
-				<li><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></li>
-			{% endfor %}			
-				<font size = 4><a href="{%url 'add_recipe' %}">Add Recipes +</a></font>
-			</ol>
-			{% else %}
-				<p>No recipes are available.</p>
-			{% endif %}
-            <h3><p><a href="{% url 'shopping_list' %}">Shopping List</a> </p> </h3>
-            <font size = 4><a href="{% url 'home' %}">Home</a> <br />
-            <a href="{% url 'logout' %}">Logout</a></p></font>
-        {% else %}
-            <h1>Hello, please login!<h1>
-            <a href="{% url 'login' %}">Login</a>
-        {% endif %}
-     {% endblock %}
-</header>
-</div>
-</span>
+              <div class="list">
+                {% for recipe in latest_recipe_list %}
+                 <p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></p>
+                {% endfor %}
+                <small><a href="{%url 'add_recipe' %}">Add Recipes +</small>
+            {% else %}
+                <p>No recipes] are available.</p>
+                </div>
+            {% endif %}
+        {% endblock %}
+      </header>
+    </div>
+  </span>
 </body>
 </html>
