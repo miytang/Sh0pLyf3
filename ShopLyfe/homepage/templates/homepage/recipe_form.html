@@ -1,17 +1,31 @@
-{% load static %}
+{% extends './base.html' %}
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
-  <meta charset="utf-8">
   <title>{% block title %}{{ recipe.recipe_name}} Details{% endblock %}</title>
+  <script type="text/javascript">
+    $(function() {
+        $('#myForm tbody tr').formset();
+    })
+  </script>
 </head>
 
-<h1> Here is your recipe form. </h1>
+<h1>Here is your recipe form.</h1>
 {% block content %}
-    <h1>New Recipe</h1>
-    <form method="POST">
+    <h1>Recipe Details:</h1>
+    <form id = "myForm" method="POST">
 	{% csrf_token %}
         {{ recipe_form.as_p }}
-        <button type="submit" class="save btn btn-default">Add Ingredients</button>
+		
+		<h1> Ingredient Details: </h1>
+		{{ ingredient_formset.management_form }}
+		{% for ingredient_form in ingredient_formset %}
+		<tr>
+			<td>Ingredient Name: {{ingredient_form.ingredient_name}}</td><br>
+			<td>Ingredient Amount: {{ingredient_form.ingredient_quantity}}</td><br>
+			<td>Ingredient Type: {{ingredient_form.quantity_type}}</td><br>
+		</tr>
+		{% endfor %} </br>
+        <button type="submit" name="add">Add Another Ingredient +</button>
+        <button type="submit" name="done">Done</button>
     </form>
 {% endblock %}

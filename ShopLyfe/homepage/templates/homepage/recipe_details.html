@@ -1,43 +1,29 @@
-{% load static %}
+{% extends './base.html' %}
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
-  <meta charset="utf-8">
-  <title>{% block title %}{{ recipe.recipe_name}} Details{% endblock %}</title>
+	<title>{% block title %}{{ recipe.recipe_name}} Details{% endblock %}</title>
 </head>
-
 <body class="vertical">
 <span class="horizontal">
-
 <div id="content">
 	{% block content %}
-		{% if user.is_authenticated %}
 			<h1>{{ recipe.recipe_name }}</h1>
-			{% if error_message %}
-				<p><strong>{{ error_message }}</strong></p>
-			{% endif %}
-			<font size = 5><ul>
-				<li>Tag: {{ recipe.recipe_tag }}</li>
-				<li>Prep Time: {{ recipe.prep_time }}</li>
-				<li>Cook Time: {{ recipe.cook_time }}</li>
-			</ul></font>
-
+		{% if error_message %}
+			<p><strong>{{ error_message }}</strong></p>
+		{% endif %}
+			<font size = 5>
+			Tag: <button class="tags">{{ recipe.recipe_tag }}</button> <br />
+			Prep Time: {{ recipe.prep_time }} <br />
+			Cook Time: {{ recipe.cook_time }} <br />
+			</font>
 			<h2>Ingredients</h2>
-			<font size = 5><ul>
-				{% for ingredient in recipe.ingredient_set.all %}
-					<li> Name: {{ ingredient.ingredient_name }}, {{ ingredient.ingredient_quantity }} {{ ingredient.quantity_type }} </li>
-				{% endfor %}
-			</ul></font>
-			<h3><p><a href="{% url 'recipes_view' %}">Recipes</a></p>
-			<p><a href="{% url 'shopping_list' %}">Shopping List</a></p></h3>
-            <font size = 4><a href="{% url 'logout' %}">Logout</a></p></font>
-		{% else %}
-		<header>
-            <h1>Hello, please login!<h1>
-            <a href="{% url 'login' %}">Login</a>
-        {% endif %}
-		</header>
-	 {% endblock %}
+			{% for ingredient in recipe.ingredient_set.all %}
+			<h3 class="ingredientsList">{{ ingredient.ingredient_name }}
+				<span class="measurements">{{ ingredient.ingredient_quantity }} {{ ingredient.quantity_type }}</span>
+			</h3>
+		{% endfor %}
+		<small><a href="{%url 'recipes_view' %}">Back</small>
+	{% endblock %}
 </div>
 </span>
 </body>

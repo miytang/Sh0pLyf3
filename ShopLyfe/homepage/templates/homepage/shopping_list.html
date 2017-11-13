@@ -1,38 +1,25 @@
-{% load static %}
+{% extends './base.html' %}
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
-  <meta charset="utf-8">
   <title>{% block title %}Shopping List{% endblock %}</title>
 </head>
 <body class="vertical">
-  <span class="horizontal">
+<span class="horizontal">
 <div id="content">
 <header>
     {% block content %}
-        {% if user.is_authenticated %}
-            <h2>Here is your shopping list:</h2>
-			{% if user.recipe_set.all %}
-			<ol>
-				{% for recipe in user.recipe_set.all %}
-					<h2><u><li> Recipe: {{recipe.recipe_name}}</li></u></h2>
-					{% for ingredient in recipe.ingredient_set.all %}
-						Name: {{ ingredient.ingredient_name }} <br />
-					{% endfor %}
-				{% endfor %}
-			</ol>
-			{% else %}
-				<p>You have nothing in your grocery list.</p>
-			{% endif %}
-            <h3><p><a href="{% url 'recipes_view' %}">Recipes</a></h3></p>
-            <font size = 4><a href="{% url 'home' %}">Home</a> <br />
-            <a href="{% url 'logout' %}">Logout</a></font>
-		{% else %}
-            <h1>Hello, please login!<h1>
-            <a href="{% url 'login' %}">Login</a>
-        {% endif %}
+            <h2>Here is your shopping list, {{ user.first_name}}:</h2>
+      {% if user.recipe_set.all %}
+        {% for recipe in user.recipe_set.all %}
+          <p class="recipe">{{recipe.recipe_name}}</p>
+          {% for ingredient in recipe.ingredient_set.all %}
+            <button class="ingredients">{{ ingredient.ingredient_name }}</button>
+          {% endfor %}
+        {% endfor %}
+      {% else %}
+        <p>You have nothing in your grocery list.</p>
+      {% endif %}
      {% endblock %}
-</header>
 </div>
 </span>
 </body>
