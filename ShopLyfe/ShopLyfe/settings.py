@@ -122,4 +122,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ubuntu/ShopLyfe/static'
+MEDIA_ROOT = '/plugins/'
+
 LOGIN_REDIRECT_URL = 'home'

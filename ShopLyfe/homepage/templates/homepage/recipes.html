@@ -8,15 +8,15 @@
     <div id="content">
       <header>
         {% block content %}
-          <h2>Here are your recipes, {{ user.username}}:</h2>
-            {% if latest_recipe_list %}
+          <h2>Here are your recipes, {{ user.first_name}}:</h2>
+            {% if user.recipe_set.all %}
               <div class="list">
-                {% for recipe in latest_recipe_list %}
+                {% for recipe in user.recipe_set.all %}
                  <p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></p>
                 {% endfor %}
                 <small><a href="{%url 'add_recipe' %}">Add Recipes +</small>
             {% else %}
-                <p>No recipes] are available.</p>
+                <p>No recipes are available.</p>
                 </div>
             {% endif %}
         {% endblock %}

@@ -10,7 +10,7 @@
     <form method="POST">
 	{% csrf_token %}
         {{ ingredient_form.as_p }}
-        <button type="submit" class="save btn btn-default">Done</button>
-		<h3><p><a href="{% url 'recipes_view' %}">Recipes</a></p>
+        <button type="submit" name="more" class="save btn btn-default">Add Another Ingredient</button>
+		<button type="submit" name="done">Done</a>
     </form>
 {% endblock %}
