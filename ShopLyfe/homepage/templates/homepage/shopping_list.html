@@ -14,6 +14,7 @@
           <p class="recipe">{{recipe.recipe_name}}</p>
           {% for ingredient in recipe.ingredient_set.all %}
             <button class="ingredients">{{ ingredient.ingredient_name }}</button>
+			{{ingredient.ingredient_quantity}} {{ingredient.quantity_type}}
           {% endfor %}
         {% endfor %}
       {% else %}
