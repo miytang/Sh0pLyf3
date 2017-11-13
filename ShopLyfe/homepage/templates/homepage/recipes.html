@@ -14,11 +14,11 @@
                 {% for recipe in user.recipe_set.all %}
                  <p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></p>
                 {% endfor %}
-                <small><a href="{%url 'add_recipe' %}">Add Recipes +</small>
             {% else %}
                 <p>No recipes are available.</p>
                 </div>
             {% endif %}
+			<small><a href="{%url 'add_recipe' %}">Add Recipes +</small>
         {% endblock %}
       </header>
     </div>
