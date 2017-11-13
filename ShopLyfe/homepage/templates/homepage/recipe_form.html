@@ -15,14 +15,13 @@
     <form id = "myForm" method="POST">
 	{% csrf_token %}
         {{ recipe_form.as_p }}
-		
 		<h1> Ingredient Details: </h1>
 		{{ ingredient_formset.management_form }}
 		{% for ingredient_form in ingredient_formset %}
 		<tr>
 			<td>Ingredient Name: {{ingredient_form.ingredient_name}}</td><br>
 			<td>Ingredient Amount: {{ingredient_form.ingredient_quantity}}</td><br>
-			<td>Ingredient Type: {{ingredient_form.quantity_type}}</td><br>
+			<td>Measuring Unit: {{ingredient_form.quantity_type}}</td><br>
 		</tr>
 		{% endfor %} </br>
         <button type="submit" name="add">Add Another Ingredient +</button>

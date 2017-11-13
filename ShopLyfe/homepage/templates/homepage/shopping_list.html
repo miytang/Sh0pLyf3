@@ -8,13 +8,13 @@
 <div id="content">
 <header>
     {% block content %}
-            <h2>Here is your shopping list, {{ user.first_name }}:</h2>
+            <h2>Here is your shopping list, {{ user.username }}:</h2>
       {% if user.recipe_set.all %}
         {% for recipe in user.recipe_set.all %}
           <p class="recipe">{{recipe.recipe_name}}</p>
           {% for ingredient in recipe.ingredient_set.all %}
             <button class="ingredients">{{ ingredient.ingredient_name }}</button>
-			{{ingredient.ingredient_quantity}} {{ingredient.quantity_type}}
+        <span class="measurements">{{ ingredient.ingredient_quantity }} {{ ingredient.quantity_type }}</span>
           {% endfor %}
         {% endfor %}
       {% else %}
