@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
+from .views import remove_from_list, add_to_list, delete_recipe
 
 from . import views
 
@@ -10,5 +11,7 @@ urlpatterns = [
 	url(r'^recipes/form/add_ingredient/(?P<recipe_id>[0-9]+)/$', views.add_ingredient, name='add_ingredient'),
 	url(r'^recipes/(?P<recipe_id>[0-9]+)/$', views.recipes, name='recipes'),
 	url(r'^shopping_list/$', views.ShoppingListView.as_view(), name='shopping_list'),
-	url(r'^add_to_shopping_list/(?P<pk>\d+)/$', views.ListUpdate.as_view(), name='add_to_shopping_list'),        
+	url(r'^add_to_list/(?P<recipe_id>[0-9]+)/$', add_to_list, name='add_to_list'),
+	url(r'^remove_from_list/(?P<recipe_id>[0-9]+)/$', remove_from_list, name='remove_from_list'),    
+	url(r'^delete_recipe/(?P<recipe_id>[0-9]+)/$', delete_recipe, name='delete_recipe'),   
 ]

@@ -1,43 +1,31 @@
-{% load static %}
+{% extends './base.html' %}
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
-  <meta charset="utf-8">
   <title>{% block title %}Recipes{% endblock %}</title>
 </head>
 <body class="vertical">
-<span class="horizontal">
-<div id="content">
-<header>
-    {% block content %}
-        {% if user.is_authenticated %}
-            <h2>Here are your recipes:</h2>
-            {% if latest_recipe_list %}
-			<ol>
-			{% for recipe in latest_recipe_list %}
-				<li><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a>
-				<a href="/home/add_to_shopping_list/{{ recipe.id }}/">Edit</a>
-				</li>
-				
-			{% endfor %}
-			
-				<font size = 4><a href="{%url 'add_recipe' %}">Add Recipes +</a></font>
-			</ol>
-			{% else %}
-				<p>No recipes are available.</p>
-			{% endif %}
-            <h3><p><a href="{% url 'shopping_list' %}">Shopping List</a> </p> </h3>
-	    
-	    
-            <font size = 4><a href="{% url 'home' %}">Home</a> <br />
-            <a href="{% url 'logout' %}">Logout</a></p></font>
-        {% else %}
-            <h1>Hello, please login!<h1>
-            <a href="{% url 'login' %}">Login</a>
-        {% endif %}
-     {% endblock %}
-</header>
-</div>
-</span>
+  <span class="horizontal">
+    <div id="content">
+      <header>
+        {% block content %}
+          <h2>Here are your recipes, {{ user.username }}:</h2>
+            {% if user.recipe_set.all %}
+              <div class="list">
+                {% for recipe in user.recipe_set.all %}
+                 <p id="recipeList">{{ recipe.recipe_amount }} <a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a> 
+				    <a href="/home/add_to_list/{{ recipe.id }}/">Add</a>
+		 		    <a href="/home/remove_from_list/{{ recipe.id }}/">Remove</a>
+		 		    <a href="/home/delete_recipe/{{ recipe.id }}/">Del</a>		 </p>
+                {% endfor %}
+            {% else %}
+                <p>No recipes are available.</p>
+		<small><a href="{%url 'add_recipe' %}">Add Recipes +</a></small>
+                </div>
+            {% endif %}
+			       <small><a href="{%url 'add_recipe' %}">Add Recipes +</a></small>
+        {% endblock %}
+      </header>
+    </div>
+  </span>
 </body>
 </html>
