@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+<html>
+<head>
+  <title>{% block title %}Shopping List{% endblock %}</title>
+</head>
+<body class="vertical">
+<span class="horizontal">
+<div id="content">
+    {% block content %}
+            <h2>Here is your shopping list, {{ user.username }}:</h2>
+      {% if user.recipe_set.all %}
+        {% for recipe in user.recipe_set.all %}
+          <p class="recipe">{{recipe.recipe_name}}</p>
+          {% for ingredient in recipe.ingredient_set.all %}
+            <button class="ingredients">{{ ingredient.ingredient_name }}</button>
+        <span class="measurements">{{ ingredient.ingredient_quantity }} {{ ingredient.quantity_type }}</span>
+          {% endfor %}
+        {% endfor %}
+      {% else %}
+        <p>You have nothing in your grocery list.</p>
+      {% endif %}
+     {% endblock %}
+</div>
+</span>
+</body>
+</html>

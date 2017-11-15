@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['54.241.142.236', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    # 'recipe.apps.PollsConfig',
     'homepage.apps.HomepageConfig',
     'loginpage.apps.LoginpageConfig',
     'django.contrib.admin',
@@ -121,4 +122,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ubuntu/ShopLyfe/static'
+MEDIA_ROOT = '/plugins/'
+
 LOGIN_REDIRECT_URL = 'home'

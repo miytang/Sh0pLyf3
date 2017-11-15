@@ -18,7 +18,7 @@
         {{ field }}</p>
 		<p>
         {% if field.help_text %}
-          <small style="color: black; font-size: 0.5em">{{ field.help_text }}</small>
+          <small style="color: black; font-size: 0.5em">{{ field.help_text|safe }}</small>
         {% endif %}
         {% for error in field.errors %}
           <p><small style="color: red">{{ error }}</small></p>

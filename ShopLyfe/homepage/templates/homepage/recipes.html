@@ -1,0 +1,27 @@
+{% extends './base.html' %}
+<html>
+<head>
+  <title>{% block title %}Recipes{% endblock %}</title>
+</head>
+<body class="vertical">
+  <span class="horizontal">
+    <div id="content">
+      <header>
+        {% block content %}
+          <h2>Here are your recipes, {{ user.username }}:</h2>
+            {% if user.recipe_set.all %}
+              <div class="list">
+                {% for recipe in user.recipe_set.all %}
+                 <p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></p>
+                {% endfor %}
+            {% else %}
+                <p>No recipes are available.</p>
+                </div>
+            {% endif %}
+			       <small><a href="{%url 'add_recipe' %}">Add Recipes +</a></small>
+        {% endblock %}
+      </header>
+    </div>
+  </span>
+</body>
+</html>
