@@ -6,20 +6,22 @@
 <body class="vertical">
 <span class="horizontal">
 <div id="content">
-    {% block content %}
-            <h2>Here is your shopping list, {{ user.username }}:</h2>
-      {% if user.recipe_set.all %}
+{% block content %}
+	<h2>Here is your shopping list, {{ user.first_name }}:</h2>
+	{% if user.recipe_set.all %}
         {% for recipe in user.recipe_set.all %}
-          <p class="recipe">{{recipe.recipe_name}}</p>
-          {% for ingredient in recipe.ingredient_set.all %}
-            <button class="ingredients">{{ ingredient.ingredient_name }}</button>
-        <span class="measurements">{{ ingredient.ingredient_quantity }} {{ ingredient.quantity_type }}</span>
-          {% endfor %}
+			{% if recipe.recipe_amount > 0 %}
+				<p class="recipe">{{ recipe.recipe_name }} x {{ recipe.recipe_amount }}</p>
+				{% for ingredient in recipe.ingredient_set.all %}
+					<button class="ingredients">{{ ingredient.ingredient_name }}</button>
+					<span class="measurements">x {{ ingredient.ingredient_quantity}} {{ ingredient.quantity_type }}</span>
+				{% endfor %}
+			{% endif %}
         {% endfor %}
-      {% else %}
-        <p>You have nothing in your grocery list.</p>
-      {% endif %}
-     {% endblock %}
+    {% else %}
+		<p>You have nothing in your grocery list.</p>
+    {% endif %}
+{% endblock %}
 </div>
 </span>
 </body>

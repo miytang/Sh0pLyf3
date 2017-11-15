@@ -11,7 +11,8 @@ class Recipe(models.Model):
 	recipe_tag = models.CharField(max_length=200)
 	prep_time = models.IntegerField(default=0)
 	cook_time = models.IntegerField(default=0)
-
+	recipe_amount = models.IntegerField(default=0)
+	
 	def __str__(self):
 		return self.recipe_name
 	def tag(self):
@@ -20,8 +21,10 @@ class Recipe(models.Model):
 		return self.prep_time
 	def c_time(self):
 		return self.cook_time
+	def r_amount(self):
+		return self.recipe_amount  
 	def details(self):
-		return self.recipe_name, self.recipe_tag, self.prep_time, self.cook_time
+		return self.recipe_name, self.recipe_tag, self.prep_time, self.cook_time, self.recipe_amount
 
 # Ingredients model
 # Each ingredient belongs to a recipe
