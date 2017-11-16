@@ -9,6 +9,11 @@
     justify-content: center;
 }
 
+.btn {
+    font-family: Georgia, serif;
+    font-weight:bold;
+}
+
 a:hover {
 	opacity: 0.8;
 }
@@ -32,6 +37,10 @@ body {
 	text-align: center;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 h2 {
     font-size: 1em;
     font-variant: all-small-caps;
@@ -43,13 +52,13 @@ h3 {
 }
 
 #content {
-    width: 40%;
+    width: 45%;
     border: 1px solid white;
     border-radius: 25px;
     background-color: white;
     color: #C79562;
     opacity: 0.8;
-    padding: 5px;
+    padding: 20px;
 }
 
 button {

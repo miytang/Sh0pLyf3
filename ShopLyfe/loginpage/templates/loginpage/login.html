@@ -1,6 +1,7 @@
 {% load static %}
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'loginpage/style.css' %}" />
   <meta charset="utf-8">
   <title>{% block title %}Welcome to ShopLyfe!{% endblock %}</title>
@@ -9,11 +10,11 @@
 <body class="vertical">
   <span class="horizontal">
 <div id="content">
-  <h1>Login</h1>
+  <h1><b>Login</b></h1>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Enter</button>
+    <button type="submit" class="btn btn-danger">Enter</button>
   </form>
  </div>
 </span>

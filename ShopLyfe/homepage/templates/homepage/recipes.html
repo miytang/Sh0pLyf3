@@ -1,6 +1,9 @@
 {% extends './base.html' %}
+{% load static %}
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
   <title>{% block title %}Recipes{% endblock %}</title>
 </head>
 <body class="vertical">
@@ -13,9 +16,9 @@
               <div class="list">
                 {% for recipe in user.recipe_set.all %}
 					<p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}: {{ recipe.recipe_amount }}</a></br>
-					<a href="/home/add_to_list/{{ recipe.id }}/">Add</a>
-					<a href="/home/remove_from_list/{{ recipe.id }}/">Remove</a>
-		 		    <a href="/home/delete_recipe/{{ recipe.id }}/">Del</a>		</p>
+					<a href="/home/add_to_list/{{ recipe.id }}/"><button type="button" class="btn btn-danger">Add</button></a>
+					<a href="/home/remove_from_list/{{ recipe.id }}/"><button type="button" class="btn btn-danger">Remove</button></a>
+		 		  <a href="/home/delete_recipe/{{ recipe.id }}/"><button type="button" class="btn btn-danger">Delete</button></a></p>  
                 {% endfor %}
             {% else %}
                 <p>No recipes are available.</p>

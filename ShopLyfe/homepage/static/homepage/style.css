@@ -56,6 +56,13 @@
 	color: #C79562;
 }
 
+.btn {
+    font-family: Georgia, serif;
+    font-weight:bold;
+    text-align: center;
+}
+
+
 #recipeList::after {
 	content: '\00002b';
     padding: 5px;
@@ -90,6 +97,10 @@ body {
 	bottom: 0%;
     overflow-y:scroll;
     overflow-x:hidden;
+}
+
+h1 {
+    font-size: 2em;
 }
 
 h2 {
