@@ -64,7 +64,7 @@
 
 
 #recipeList::after {
-	content: '\00002b';
+/*	content: '\00002b';*/
     padding: 5px;
     font-size: 0.8em;
 }
@@ -89,7 +89,7 @@ header {
 
 body {
 	font-size: 2em;
-	background-image: url("images/paper-bag.gif");
+	background-image: url("images/paper-bag.jpg");
 	background-repeat: repeat-y;
 	background-color: white;
 	color: white;
@@ -105,6 +105,7 @@ h1 {
 
 h2 {
     font-size: 1.3em;
+    line-height: 70px;
 }
 
 h3 {
@@ -113,9 +114,9 @@ h3 {
 
 .measurements {
     display: block;
-    color: silver;
+    color: black;
     text-transform: lowercase;
-    font-size: 0.7em;
+    font-size: 0.8em;
     font-family: monospace;
 }
 
@@ -126,6 +127,11 @@ p {
 small {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.6em;
+}
+
+#icons {
+    float: right;
+    padding: 10px;
 }
 
 #nav {
@@ -142,7 +148,7 @@ small {
 }
 
 #content {
-    width: 40%;
+    width: 55%;
     border: 30px solid white;
     border-radius: 25px;
     background-color: white;

@@ -13,7 +13,7 @@
 <header>
     {% block content %}
         {% if user.is_authenticated %}
-            <h1><b>Welcome, {{ user.username}}!</b></h1>
+            <h1><b>Welcome, {{ user.first_name}}!</b></h1>
             <!--doesn't work for me: {{ user.first_name}}! -->
             <p>You can navigate to your recipes and shopping list from here:</p>
             <!--<p><a href="{% url 'recipes_view' %}">Recipes</a></p> -->

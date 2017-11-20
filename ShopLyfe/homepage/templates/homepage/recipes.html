@@ -15,10 +15,10 @@
             {% if user.recipe_set.all %}
               <div class="list">
                 {% for recipe in user.recipe_set.all %}
-					<p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}: {{ recipe.recipe_amount }}</a></br>
-					<a href="/home/add_to_list/{{ recipe.id }}/"><button type="button" class="btn btn-danger">Add</button></a>
-					<a href="/home/remove_from_list/{{ recipe.id }}/"><button type="button" class="btn btn-danger">Remove</button></a>
-		 		  <a href="/home/delete_recipe/{{ recipe.id }}/"><button type="button" class="btn btn-danger">Delete</button></a></p>  
+					<p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}: {{ recipe.recipe_amount }}</a>
+            <a href="/home/delete_recipe/{{ recipe.id }}/"><i id="icons" class="fa fa-trash" aria-hidden="true"></i></a>
+            <a href="/home/remove_from_list/{{ recipe.id }}/"><i id="icons" class="fa fa-minus" aria-hidden="true"></i></a>
+					<a href="/home/add_to_list/{{ recipe.id }}/"><i id="icons" class="fa fa-plus" aria-hidden="true"></i></a></p>
                 {% endfor %}
             {% else %}
                 <p>No recipes are available.</p>

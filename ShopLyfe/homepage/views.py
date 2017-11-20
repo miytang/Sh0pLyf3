@@ -113,7 +113,7 @@ def add_ingredient(request, recipe_id):
 	
 def add_to_list(request, recipe_id):
 	query = Recipe.objects.get(pk=recipe_id)
-	ingredient_list = Ingredient.objects.get(pk=query)
+	#ingredient_list = Ingredient.objects.get(pk=query)
 	query.recipe_amount += 1
 	
 	#for ingredient in ingredient_list
