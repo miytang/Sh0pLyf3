@@ -6,24 +6,40 @@
 <body class="vertical">
 <span class="horizontal">
 <div id="content">
-<header>
-    {% block content %}
-            <h2>Here is your shopping list, {{ user.username }}:</h2>
-      {% if user.recipe_set.all %}
+{% block content %}
+	<h2>Here is your shopping list {{ user.first_name }}:</h2>
+	{% if user.recipe_set.all %}
         {% for recipe in user.recipe_set.all %}
-	{% if recipe.recipe_amount > 0 %}
-          <p class="recipe">{{recipe.recipe_name}}</p>
-          {% for ingredient in recipe.ingredient_set.all %}
-            <button class="ingredients">{{ ingredient.ingredient_name }}</button>
-        <span class="measurements">{{ ingredient.ingredient_quantity }}x {{recipe.recipe_amount}}{{ ingredient.quantity_type }}</span>
-         	
-	{% endfor %}
-		{% endif %}
+			{% if recipe.recipe_amount > 0 %}
+			
+			<div align="left">
+				{% for ingredient in recipe.ingredient_set.all %}
+				
+				{% if ingredient.ingredient_show  %}
+				
+					<a href="/home/hide_ingredient/{{ ingredient.id }}/"><button type="button" class="btn btn-danger">Not Bought</button></a>
+					<script> document.getElementById("demo").innerHTML = recipe.recipe_amount * ingredient.ingredient_quantity;  </script>
+					<span style="color:black;font-weight:normal">{{ recipe.recipe_amount }} x {{ ingredient.ingredient_quantity}} {{ ingredient.quantity_type }} of {{ ingredient.ingredient_name }} </span>
+					{% endif %}
+					{% if ingredient.ingredient_show == False %}
+					
+					<a href="/home/show_ingredient/{{ ingredient.id }}/"><button type="button" class="btn btn-success">Bought</button></a>
+				
+					<span style="color:black;font-weight:normal">{{ recipe.recipe_amount }} x {{ ingredient.ingredient_quantity}} {{ ingredient.quantity_type }} of {{ ingredient.ingredient_name }} </span>
+				
+					{% endif %}
+				{% endfor %}
+			
+				</div>
+			{% endif %}
         {% endfor %}
-      {% else %}
-        <p>You have nothing in your grocery list.</p>
-      {% endif %}
-     {% endblock %}
+    
+
+	
+	{% else %}
+		<p>You have nothing in your grocery list.</p>
+    {% endif %}
+{% endblock %}
 </div>
 </span>
 </body>
