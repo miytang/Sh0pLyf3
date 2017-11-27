@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.urls import reverse
 from django.views import generic
+from django.db.models import Count
 
 from .models import Recipe, Ingredient
 from .forms import RecipeForm, IngredientForm
@@ -101,6 +102,7 @@ def add_ingredient(request, recipe_id):
 			ingredient_name = ingredient_form.cleaned_data.get('ingredient_name')
 			ingredient_amount = ingredient_form.cleaned_data.get('ingredient_amount')
 			quantity_type = ingredient_form.cleaned_data.get('quantity_type')
+			ingredient_show = ingredient_form.cleaned_data.get('ingredient_show')
 			new_ingredient.save()
 			
 			if 'more' in request.POST:
@@ -110,20 +112,52 @@ def add_ingredient(request, recipe_id):
 	else:
 		ingredient_form = IngredientForm()
 	return render(request, 'homepage/ingredient_form.html', {'ingredient_form': ingredient_form})
-
+	
 def add_to_list(request, recipe_id):
-    query = Recipe.objects.get(pk=recipe_id)
-    query.recipe_amount += 1
-    query.save()
-    return redirect ('recipes_view')
+	query = Recipe.objects.get(pk=recipe_id)
+	#ingredient_list = Ingredient.objects.get(pk=query)
+	query.recipe_amount += 1
+	
+	#for ingredient in ingredient_list
+	#	ingredient.ingredient_quantity *= query.recipe_amount
+	
+	query.save()
+	return redirect ('recipes_view')
 
 def remove_from_list(request, recipe_id):
-    query = Recipe.objects.get(pk=recipe_id)
-    query.recipe_amount -= 1
-    query.save()
-    return redirect ('recipes_view')
+	query = Recipe.objects.get(pk=recipe_id)
+	if (query.recipe_amount <= 0):
+            return redirect ('recipes_view')
+	else:
+	    query.recipe_amount -= 1
+
+
+	    query.full_clean()
+	    query.save()
+
+	    return redirect ('recipes_view')
 
 def delete_recipe(request, recipe_id):
-    query = Recipe.objects.get(pk=recipe_id)
-    query.delete()
-    return redirect ('recipes_view')
+	query = Recipe.objects.get(pk=recipe_id)
+	query.delete()
+	return redirect ('recipes_view')
+
+def hide_ingredient(request, ingredient_id):
+	query = Ingredient.objects.get(pk=ingredient_id)
+	query.ingredient_show = False
+	query.save()
+	return redirect ('shopping_list')
+
+
+def show_ingredient(request, ingredient_id):
+	query = Ingredient.objects.get(pk=ingredient_id)
+	query.ingredient_show = True
+	query.save()
+	return redirect ('shopping_list')
+
+
+
+
+
+
+

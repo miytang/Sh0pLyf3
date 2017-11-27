@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 
 # Create your models here.
 
@@ -11,8 +12,10 @@ class Recipe(models.Model):
 	recipe_tag = models.CharField(max_length=200)
 	prep_time = models.IntegerField(default=0)
 	cook_time = models.IntegerField(default=0)
-	recipe_amount = models.IntegerField(default=0)
+	recipe_amount = models.IntegerField(default=0,
+                                        validators=[MinValueValidator(0)])
 
+	
 	def __str__(self):
 		return self.recipe_name
 	def tag(self):
@@ -22,7 +25,7 @@ class Recipe(models.Model):
 	def c_time(self):
 		return self.cook_time
 	def r_amount(self):
-		return self.recipe_amount            
+		return self.recipe_amount  
 	def details(self):
 		return self.recipe_name, self.recipe_tag, self.prep_time, self.cook_time, self.recipe_amount
 
@@ -32,13 +35,16 @@ class Recipe(models.Model):
 class Ingredient(models.Model):
 	recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 	null=True
+	ingredient_show = models.BooleanField(default=True)
 	ingredient_name = models.CharField(max_length=200)
 	ingredient_quantity = models.DecimalField(max_digits=5, decimal_places=2)
 	quantity_type = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.ingredient_name
+	def __str__(self):
+		return self.ingredient_show
 	def quantity(self):
-		return str(self.ingredient_quantity) + " " + self.quantity_type
+		return str(self.ingredient_quantity) + " " + self.quantity_type, self.ingredient_show
 	def details(self):
-		return self.ingredient_name, self.ingredient_quantity, self.quantity_type
+		return self.ingredient_name, self.ingredient_quantity, self.quantity_type, self.ingredient_show
