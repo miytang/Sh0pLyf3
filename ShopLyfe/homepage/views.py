@@ -14,6 +14,9 @@ from django.contrib.auth.models import User
 # View for listing the recipes you currently have
 # passes in the context, latest_recipe_list which 
 # holds all the recipe objects (models).
+
+
+
 class RecipesView(generic.ListView):
 	template_name = 'homepage/recipes.html'
 	# Sets the name of the context as 'latest_recipe_list'
@@ -28,6 +31,8 @@ class RecipesView(generic.ListView):
 class ShoppingListView(generic.ListView):		
 	template_name = 'homepage/shopping_list.html'
 	context_object_name = 'latest_recipe_list'
+
+		
 	def get_queryset(self):
 		return Recipe.objects.order_by('id')
 

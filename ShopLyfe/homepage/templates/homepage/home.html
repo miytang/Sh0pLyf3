@@ -1,6 +1,7 @@
 {% load static %}
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
   <meta charset="utf-8">
   <title>{% block title %}ShopLyfe Homepage{% endblock %}</title>
@@ -12,15 +13,17 @@
 <header>
     {% block content %}
         {% if user.is_authenticated %}
-            <h1>Welcome, {{ user.username}}!</h1>
+            <h1><b>Welcome, {{ user.username}}!</b></h1>
             <!--doesn't work for me: {{ user.first_name}}! -->
             <p>You can navigate to your recipes and shopping list from here:</p>
-            <p><a href="{% url 'recipes_view' %}">Recipes</a></p>
-            <p><a href="{% url 'shopping_list' %}">Shopping List</a></p>
-            <p><a href="{% url 'logout' %}">Logout</a></p>
+            <!--<p><a href="{% url 'recipes_view' %}">Recipes</a></p> -->
+            <a href="{% url 'recipes_view' %}"><button type="button" class="btn btn-danger">Recipes</button></a>
+            <a href="{% url 'shopping_list' %}"><button type="button" class="btn btn-danger">Shopping List</button></a>
+            </br>
+            <p><a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a></p>
         {% else %}
-            <h1>Hello, please login!<h1>
-            <a href="{% url 'login' %}">Login</a>
+            <h1>Hello, please login!</h1>
+            <a href="{% url 'login' %}"><button type="button" class="btn btn-danger">Login</button></a>
         {% endif %}
      {% endblock %}
 </header>

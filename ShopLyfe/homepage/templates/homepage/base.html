@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
   <link rel="stylesheet" href="{% static 'homepage/font-awesome-4.7.0/css/font-awesome.min.css' %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,7 +13,11 @@
           $(this).css("opacity", "0.3");
         }
         else $(this).css("opacity", "1");
-      })
+      });
+      $("button[name='add']").click(function() {
+        $("#content").append('<h1>New Ingredient</h1>');
+        console.log("meow");
+      });
     })
   </script>
   <title>{% block title %}ShopLyfe{% endblock %}</title>
@@ -31,8 +36,8 @@
     <p><a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a></p>
     <p><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></p>
   {% else %}
-    <h1>Hello, please login!</h1>
     <p><a href="{% url 'login' %}">Login</a></p>
+    <p>or <a href="{% url 'signup' %}">sign up</a></p>
   {% endif %}
 </div>
 <body class="vertical">
@@ -44,8 +49,8 @@
   {% else %}
     {% block login %}
     <header>
-          <h1>Hello, please login!<h1>
-          <a href="{% url 'login' %}">Login</a>
+          <h1>Hello, please login!</h1>
+          <p><a href="{% url 'login' %}">Login</a> or <a href="{% url 'signup' %}">sign up</a></p>
     </header>
     {% endblock %}
   {% endif %}

@@ -48,3 +48,5 @@ class Ingredient(models.Model):
 		return str(self.ingredient_quantity) + " " + self.quantity_type, self.ingredient_show
 	def details(self):
 		return self.ingredient_name, self.ingredient_quantity, self.quantity_type, self.ingredient_show
+	def total(self):
+		return self.recipe.recipe_amount*self.ingredient_quantity
