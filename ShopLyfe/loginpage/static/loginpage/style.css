@@ -9,18 +9,78 @@
     justify-content: center;
 }
 
+.list {
+    padding: 0 10%;
+    text-align: left;
+}
+
+.ingredientsList {
+	text-transform: lowercase;
+}
+
+.ingredients {
+    color: white;
+    padding: 6px;
+    font-size: 0.5em;
+    display: inline-block;
+    background-color: tomato;
+    font-variant: all-petite-caps;
+    text-transform: lowercase;
+}
+
+.ingredients::before {
+	content: '\0078';
+    font-size: 0.5em;
+    padding: 4px;
+    vertical-align: middle;
+}
+
+.tags {
+	text-transform: lowercase;
+    color: white;
+    padding: 6px;
+    font-size: 0.5em;
+    display: inline-block;
+    background-color: #C79562;
+    font-variant: all-petite-caps;
+}
+
+.tags::before {
+	content: '\0078';
+    font-size: 0.5em;
+    padding: 4px;
+    vertical-align: middle;
+}
+
+.recipe {
+	color: #C79562;
+}
+
 .btn {
     font-family: Georgia, serif;
     font-weight:bold;
+    text-align: center;
 }
 
-a:hover {
-	opacity: 0.8;
+
+#recipeList::after {
+/*	content: '\00002b';*/
+    padding: 5px;
+    font-size: 0.8em;
+}
+
+i {
+	padding-right: 5px;
 }
 
 a {
 	text-decoration: none;
-	color: brown;
+	color: firebrick;
+}
+
+a:hover {
+	color: silver;
+	opacity: 0.8;
 }
 
 header {
@@ -28,13 +88,15 @@ header {
 }
 
 body {
-	font-family: Tahoma, serif;
 	font-size: 2em;
 	background-image: url("images/paper-bag.jpg");
 	background-repeat: repeat-y;
 	background-color: white;
 	color: white;
 	text-align: center;
+	bottom: 0%;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
 
 h1 {
@@ -42,24 +104,57 @@ h1 {
 }
 
 h2 {
-    font-size: 1em;
-    font-variant: all-small-caps;
+    font-size: 1.3em;
     line-height: 70px;
 }
 
 h3 {
 	font-size: .7em;
-	color: #C79562;
+}
+
+.measurements {
+    display: block;
+    color: black;
+    text-transform: lowercase;
+    font-size: 0.8em;
+    font-family: monospace;
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+small {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.6em;
+}
+
+#icons {
+    float: right;
+    padding: 10px;
+}
+
+#nav {
+    display: block;
+    font-size: .7em;
+    width: 16%;
+    border: 5px solid white;
+    border-radius: 0px 0px 25px 25px;
+    background-color: white;
+    color: #C79562;
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
 }
 
 #content {
     width: 55%;
-    border: 1px solid white;
+    border: 30px solid white;
     border-radius: 25px;
     background-color: white;
     color: #C79562;
     opacity: 0.8;
-    padding: 20px;
+    margin-top: 3%;
 }
 
 button {
@@ -80,17 +175,14 @@ img {
 	opacity: 1;
 }
 
-small {
-	font-size: 0.3em;
-}
-
 form {
 	font-size: .8em;
 }
 
 input {
-	background-color: #C79562;
-	border: none;
-	height: 30px;
-	color: white;
+    background-color: #C79562;
+    border: none;
+    height: 30px;
+    color: white;
+    font-size: 2.0vh;
 }
