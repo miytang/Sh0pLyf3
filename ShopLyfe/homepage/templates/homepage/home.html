@@ -1,3 +1,4 @@
+{% extends './base.html' %}
 {% load static %}
 <html>
 <head>
@@ -15,15 +16,11 @@
         {% if user.is_authenticated %}
             <h1><b>Welcome, {{ user.first_name}}!</b></h1>
             <!--doesn't work for me: {{ user.first_name}}! -->
-            <p>You can navigate to your recipes and shopping list from here:</p>
+            <p>You can navigate to your recipes and shopping list from here using the navigation bar located to the left of the screen.</p>
             <!--<p><a href="{% url 'recipes_view' %}">Recipes</a></p> -->
-            <a href="{% url 'recipes_view' %}"><button type="button" class="btn btn-danger">Recipes</button></a>
-            <a href="{% url 'shopping_list' %}"><button type="button" class="btn btn-danger">Shopping List</button></a>
-            </br>
-            <p><a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a></p>
         {% else %}
-            <h1>Hello, please login!</h1>
-            <a href="{% url 'login' %}"><button type="button" class="btn btn-danger">Login</button></a>
+            <h3><b>Hello, please login or sign up using the navigation bar located to the left of the screen.</b></h3>
+
         {% endif %}
      {% endblock %}
 </header>
