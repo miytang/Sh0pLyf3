@@ -30,11 +30,11 @@ class Recipe(models.Model):
 # Each ingredient belongs to a recipe
 # Can the same ingredient belong to multiple recipes???
 class Ingredient(models.Model):
-	recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-	null=True
-	ingredient_name = models.CharField(max_length=200)
-	ingredient_quantity = models.DecimalField(max_digits=5, decimal_places=2)
-	quantity_type = models.CharField(max_length=200)
+	recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, blank = True, null = True)
+	ingredient_show = models.BooleanField(default=True)
+	ingredient_name = models.CharField(max_length=200, null = True)
+	ingredient_quantity = models.DecimalField(max_digits=5, decimal_places=2, default = '0.0', null = True)
+	quantity_type = models.CharField(max_length=200, null = True)
 
 	def __str__(self):
 		return self.ingredient_name
@@ -42,3 +42,5 @@ class Ingredient(models.Model):
 		return str(self.ingredient_quantity) + " " + self.quantity_type
 	def details(self):
 		return self.ingredient_name, self.ingredient_quantity, self.quantity_type
+	def total(self):
+		return self.recipe.recipe_amount*self.ingredient_quantity
