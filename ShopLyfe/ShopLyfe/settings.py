@@ -25,11 +25,7 @@ SECRET_KEY = 'fd&st9&pf7rcr#x-q#8_z3)okibld&c+%bvo%wdwzxo^%1!sb='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True;
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['54.241.142.236', '127.0.0.1', 'shopylyfe.net']
-=======
-ALLOWED_HOSTS = ['54.241.142.236', '127.0.0.1']
->>>>>>> 5ff21f398ef06a61f2da2f851c785fb55d9fcfa5
 
 
 # Application definition
