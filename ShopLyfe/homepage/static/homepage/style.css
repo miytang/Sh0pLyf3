@@ -188,6 +188,7 @@ form {
 }
 
 input {
+<<<<<<< HEAD
     background-color: #C79562;
     border: none;
     height: 30px;
@@ -301,5 +302,10 @@ body {
 }
 
 .recipe {
-    color: #C79562;
+    /*color: #C79562;*/
+	background-color: #C79562;
+	border: none;
+	height: 30px;
+	color: white;
+	font-size: 2.0vh;
 }
