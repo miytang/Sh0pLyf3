@@ -195,6 +195,11 @@ input {
     font-size: 2.0vh;
 }
 */
+.nav-stacked
+{
+    padding: 6%;
+}
+
 #content {
     width: 95%%;
     border: 30px solid white;
@@ -207,11 +212,20 @@ input {
 
 a 
 {
-    color: firebrick;   
+    border-radius: 12px;
+    color: firebrick;
+    background-color: white;
+    opacity: 0.8;   
+}
+
+a:hover
+{
+    color: darkred;
 }
 
 .navbar-toggle
 {
+    border-radius: 8px;
     color: firebrick;
     background-color: white;
     opacity: 0.8;
@@ -220,6 +234,7 @@ a
 .navbar-default
 {
     background-color: transparent;
+    border: none;
 }
 
 
@@ -234,17 +249,12 @@ body {
     font-size: 2em;
     background-image: url("images/paper-bag.jpg");
     background-repeat: repeat-y;
-    /*background-color: white;*/
-    background-color: transparent;
+    background-color: white;
     color: white;
     text-align: center;
     bottom: 0%;
     overflow-y:scroll;
     overflow-x:hidden;
-}
-
-#navbarback{
-    bakcground-color: purple;
 }
 
 .list {
