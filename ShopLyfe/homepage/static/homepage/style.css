@@ -186,7 +186,7 @@ img {
 form {
     font-size: .8em;
 }
-
+*/
 input {
     background-color: #C79562;
     border: none;
@@ -194,7 +194,7 @@ input {
     color: white;
     font-size: 2.0vh;
 }
-*/
+
 .nav-stacked
 {
     padding: 6%;
@@ -256,7 +256,7 @@ a:hover
 
 #icons {
     float: right;
-    padding: 10px;
+    padding: 5px;
 }
 
 

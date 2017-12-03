@@ -17,12 +17,20 @@
     {% block content %}
         {% if user.is_authenticated %}
             <h1><b>Welcome, {{ user.first_name}}!</b></h1>
-            <!--doesn't work for me: {{ user.first_name}}! -->
-            <p>You can navigate to your recipes and shopping list from here using the navigation bar located to the left of the screen if you are on a laptop or desktop, or located on the top right of the screen if you are on a tablet or mobile device..</p>
+			
+            <p id="msg">You can navigate to your recipes and shopping list from here </p>
             <!--<p><a href="{% url 'recipes_view' %}">Recipes</a></p> -->
         {% else %}
             <h3><b>Hello, please login or sign up.</b></h3>
         {% endif %}
+	<script>
+		var canvas = document.body.clientWidth;
+		var log = document.getElementById("msg");
+		var text1 = document.createTextNode("located on the top right of the screen.")
+		var text2 = document.createTextNode("using the navigation bar located to the left of the screen.")
+		if (screen.width <= 480) log.appendChild(text1);
+		else log.appendChild(text2);
+	</script> 
      {% endblock %}
 </header>
 </div>
