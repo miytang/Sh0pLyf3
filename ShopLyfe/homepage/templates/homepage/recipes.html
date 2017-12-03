@@ -1,6 +1,9 @@
 {% extends './base.html' %}
+{% load static %}
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
   <title>{% block title %}Recipes{% endblock %}</title>
 </head>
 <body class="vertical">
@@ -8,17 +11,20 @@
     <div id="content">
       <header>
         {% block content %}
-          <h2>Here are your recipes, {{ user.first_name}}:</h2>
+          <h2>Here are your recipes, {{ user.first_name }}:</h2>
             {% if user.recipe_set.all %}
               <div class="list">
                 {% for recipe in user.recipe_set.all %}
-                 <p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}</a></p>
+					<p id="recipeList"><a href="/home/recipes/{{ recipe.id }}/">{{ recipe.recipe_name }}: {{ recipe.recipe_amount }}</a>
+            <a href="/home/delete_recipe/{{ recipe.id }}/"><i id="icons" class="fa fa-trash" aria-hidden="true"></i></a>
+            <a href="/home/remove_from_list/{{ recipe.id }}/"><i id="icons" class="fa fa-minus" aria-hidden="true"></i></a>
+					<a href="/home/add_to_list/{{ recipe.id }}/"><i id="icons" class="fa fa-plus" aria-hidden="true"></i></a></p>
                 {% endfor %}
-                <small><a href="{%url 'add_recipe' %}">Add Recipes +</small>
             {% else %}
                 <p>No recipes are available.</p>
                 </div>
             {% endif %}
+			       <small><a href="{%url 'add_recipe' %}">Add Recipes +</a></small>
         {% endblock %}
       </header>
     </div>

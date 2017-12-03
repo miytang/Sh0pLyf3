@@ -110,3 +110,25 @@ def add_ingredient(request, recipe_id):
 	else:
 		ingredient_form = IngredientForm()
 	return render(request, 'homepage/ingredient_form.html', {'ingredient_form': ingredient_form})
+	
+def add_to_list(request, recipe_id):
+	query = Recipe.objects.get(pk=recipe_id)
+	#ingredient_list = Ingredient.objects.get(pk=query)
+	query.recipe_amount += 1
+	
+	#for ingredient in ingredient_list
+	#	ingredient.ingredient_quantity *= query.recipe_amount
+	
+	query.save()
+	return redirect ('recipes_view')
+
+def remove_from_list(request, recipe_id):
+	query = Recipe.objects.get(pk=recipe_id)
+	query.recipe_amount -= 1
+	query.save()
+	return redirect ('recipes_view')
+
+def delete_recipe(request, recipe_id):
+	query = Recipe.objects.get(pk=recipe_id)
+	query.delete()
+	return redirect ('recipes_view')

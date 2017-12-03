@@ -4,13 +4,13 @@
   <title>{% block title %}{{ recipe.recipe_name}} Details{% endblock %}</title>
 </head>
 
-<h1>Here is your Ingredients form.</h1>
+<h1>Here is your ingredient form.</h1>
 {% block content %}
     <h1>New Ingredient</h1>
     <form method="POST">
 	{% csrf_token %}
         {{ ingredient_form.as_p }}
         <button type="submit" name="more" class="save btn btn-default">Add Another Ingredient</button>
-		<button type="submit" name="done">Done</a>
+		<button type="submit" name="done">Done</button>
     </form>
 {% endblock %}
