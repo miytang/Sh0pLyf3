@@ -124,7 +124,11 @@ def add_to_list(request, recipe_id):
 
 def remove_from_list(request, recipe_id):
 	query = Recipe.objects.get(pk=recipe_id)
-	query.recipe_amount -= 1
+	if (query.recipe_amount <= 0):
+            return redirect ('recipes_view')
+	else:
+	    query.recipe_amount -= 1
+
 	query.save()
 	return redirect ('recipes_view')
 
@@ -132,3 +136,17 @@ def delete_recipe(request, recipe_id):
 	query = Recipe.objects.get(pk=recipe_id)
 	query.delete()
 	return redirect ('recipes_view')
+
+def hide_ingredient(request, ingredient_id):
+	query = Ingredient.objects.get(pk=ingredient_id)
+	query.ingredient_show = False
+	query.save()
+	return redirect ('shopping_list')
+
+def show_ingredient(request, ingredient_id):
+	query = Ingredient.objects.get(pk=ingredient_id)
+	query.ingredient_show = True
+	query.save()
+	return redirect ('shopping_list')
+
+
