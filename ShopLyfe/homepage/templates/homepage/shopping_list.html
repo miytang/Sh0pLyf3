@@ -1,0 +1,49 @@
+{% extends './base.html' %}
+<html>
+<head>
+  <title>{% block title %}Shopping List{% endblock %}</title>
+</head>
+<body class="vertical">
+<span class="horizontal">
+<div id="content">
+{% block content %}
+	<h2>Here is your shopping list {{ user.first_name }}:</h2>
+{% for ingridient in ingredients %}
+    {{ ingredient.ingredient_name }} ordered {{ ingredient.orders_count }} items
+{% endfor %}
+	{% if user.recipe_set.all %}
+        {% for recipe in user.recipe_set.all %}
+			{% if recipe.recipe_amount > 0 %}
+			
+			<div align="left">
+				{% for ingredient in recipe.ingredient_set.all %}
+				<p>
+				{% if ingredient.ingredient_show  %}
+				
+					<a href="/home/hide_ingredient/{{ ingredient.id }}/"><button type="button" class="btn btn-danger">&#10005</button></a>
+					<script> document.getElementById("demo").innerHTML = recipe.recipe_amount * ingredient.ingredient_quantity;  </script>
+					<span style="color:black;font-weight:normal">{{ ingredient.total }} {{ ingredient.quantity_type }} of {{ ingredient.ingredient_name }} </span>
+					{% endif %}
+					{% if ingredient.ingredient_show == False %}
+					
+					<a href="/home/show_ingredient/{{ ingredient.id }}/"><button type="button" class="btn btn-success">&#10003</button></a>
+				
+					<span style="color:black;font-weight:normal">{{ ingredient.total }} {{ ingredient.quantity_type }} of {{ ingredient.ingredient_name }} </span>
+				
+					{% endif %}</p>
+				{% endfor %}
+			
+				</div>
+			{% endif %}
+        {% endfor %}
+    
+
+	
+	{% else %}
+		<p>You have nothing in your grocery list.</p>
+    {% endif %}
+{% endblock %}
+</div>
+</span>
+</body>
+</html>

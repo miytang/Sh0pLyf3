@@ -1,6 +1,7 @@
 {% load static %}
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'loginpage/style.css' %}" />
   <meta charset="utf-8">
   <title>{% block title %}ShopLyfe Registration{% endblock %}</title>
@@ -18,14 +19,15 @@
         {{ field }}</p>
 		<p>
         {% if field.help_text %}
-          <small style="color: black; font-size: 0.5em">{{ field.help_text }}</small>
+          <small style="color: black; font-size: 0.5em">{{ field.help_text|safe }}</small>
         {% endif %}
         {% for error in field.errors %}
           <p><small style="color: red">{{ error }}</small></p>
         {% endfor %}
       </p>
     {% endfor %}
-    <button type="submit">Sign up</button>
+    <!--<button type="submit">Sign up</button>-->
+    <button type="submit" class="btn btn-danger">Signup</button>
   </form>
   <body class="vertical">
   <span class="horizontal">
