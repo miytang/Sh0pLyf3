@@ -198,6 +198,18 @@ input {
 .nav-stacked
 {
     padding: 6%;
+    background-color: transparent;
+}
+
+.navbar-header 
+{
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-default
+{
+    background-color: transparent;
 }
 
 #content {
@@ -226,17 +238,21 @@ a:hover
 .navbar-toggle
 {
     border-radius: 8px;
-    color: firebrick;
     background-color: white;
+    color: firebrick;
     opacity: 0.8;
 }
 
 .navbar-default
 {
     background-color: transparent;
-    border: none;
+    border-color: transparent;
 }
 
+.navbar-collapse
+{
+    border-top: none;
+}
 
 #icons {
     float: right;

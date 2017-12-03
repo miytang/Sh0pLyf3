@@ -37,8 +37,8 @@
   <div class="container-fluid">
     <div class="row">
 
+    {% if user.is_authenticated %}
       <div class="col-sm-4">
-
 
       <nav class="navbar navbar-default" role="navigation" id="nav">
         <div class="navbar-header">
@@ -48,35 +48,39 @@
         </div>
 
         <div class="navbar-collapse collapse" id="myNavbar">
-          {% if user.is_authenticated %}
+          
             <ul class="nav nav-stacked">
               <li><a href="{% url 'shopping_list' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List</a></li>
               <li><a href="{% url 'recipes_view' %}"><i class="fa fa-cutlery" aria-hidden="true"></i> Recipes</a></li>
               <li><a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
               <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
             </ul>
-          {% endif %}
+          
         </div>
       </nav>
+      {% endif %}
     </div>
 
-
-      <div class="col-sm-8">
-        <div id="content">
-            {% if user.is_authenticated %}
-              {% block content %}
-              {% endblock %}
-            {% else %}
-              {% block login %}
+    {% if user.is_authenticated %}
+    	<div class="col-sm-8">
+    		<div id="content">
+    			{% block content %}
+    			{% endblock %}
+    		</div>
+    	</div>
+    {% else %}
+    	<div class="col-sm-12">
+    		<div id="content">
+    		  {% block login %}
               <header>
                 <h1><b>Hello</b></h1>
-                <h2><b>Please</b></h2><a href="{% url 'login' %}"><button type="button" class="btn btn-danger">Login</button></a>
-                <h2><b>or</b></h2><a href="{% url 'signup' %}"><button type="button" class="btn btn-danger">Signup</button></div></a>  
+                <h2><b>Please</b></h2><a href="{% url 'login' %}">Login</a>
+                <h2><b>or</b></h2><a href="{% url 'signup' %}">Signup</div></a>  
               </header>
               {% endblock %}
-            {% endif %}
+             </div>
         </div>
-      </div>
+    {% endif %} 
 
     </div>
   </div>

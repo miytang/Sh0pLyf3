@@ -1,8 +1,12 @@
 {% load static %}
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'loginpage/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'homepage/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'loginpage/style.css' %}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <meta charset="utf-8">
   <title>{% block title %}Welcome to ShopLyfe!{% endblock %}</title>
 </head>
@@ -14,8 +18,8 @@
     </header>
     <!--<h2>Please <a href="{% url 'login' %}">login</a></h2>
     <h2>or <a href="{% url 'signup' %}">sign up</a></h2>-->
-    <h2><b>Please</b></h2><a href="{% url 'login' %}"><button type="button" class="btn btn-danger">Login</button></a>
-      <h2><b>or</b></h2><a href="{% url 'signup' %}"><button type="button" class="btn btn-danger">Signup</button></div></a>
+    <h2><b>Please</b></h2><a href="{% url 'login' %}">Login</a>
+      <h2><b>or</b></h2><a href="{% url 'signup' %}">Signup</div></a>
   </div>
   </span>
 <!--   <hr>

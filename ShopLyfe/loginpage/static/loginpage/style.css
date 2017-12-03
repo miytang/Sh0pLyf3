@@ -56,15 +56,16 @@
 	color: #C79562;
 }
 
+/*
 .btn {
     font-family: Georgia, serif;
     font-weight:bold;
     text-align: center;
 }
-
+*/
 
 #recipeList::after {
-/*	content: '\00002b';*/
+	content: '\00002b';
     padding: 5px;
     font-size: 0.8em;
 }
@@ -72,6 +73,7 @@
 i {
 	padding-right: 5px;
 }
+
 
 a {
 	text-decoration: none;
@@ -99,14 +101,16 @@ body {
     overflow-x:hidden;
 }
 
+
 h1 {
     font-size: 2em;
 }
 
-h2 {
+
+/*h2 {
     font-size: 1.3em;
     line-height: 70px;
-}
+}*/
 
 h3 {
 	font-size: .7em;

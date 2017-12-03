@@ -2,8 +2,10 @@
 {% load static %}
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'homepage/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <meta charset="utf-8">
   <title>{% block title %}ShopLyfe Homepage{% endblock %}</title>
 </head>
@@ -16,11 +18,10 @@
         {% if user.is_authenticated %}
             <h1><b>Welcome, {{ user.first_name}}!</b></h1>
             <!--doesn't work for me: {{ user.first_name}}! -->
-            <p>You can navigate to your recipes and shopping list from here using the navigation bar located to the left of the screen.</p>
+            <p>You can navigate to your recipes and shopping list from here using the navigation bar located to the left of the screen if you are on a laptop or desktop, or located on the top right of the screen if you are on a tablet or mobile device..</p>
             <!--<p><a href="{% url 'recipes_view' %}">Recipes</a></p> -->
         {% else %}
-            <h3><b>Hello, please login or sign up using the navigation bar located to the left of the screen.</b></h3>
-
+            <h3><b>Hello, please login or sign up.</b></h3>
         {% endif %}
      {% endblock %}
 </header>
