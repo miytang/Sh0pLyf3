@@ -121,7 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/ubuntu/ShopLyfe/static'
+STATIC_ROOT = '/Users/Connor/Desktop/UCSC/Fall\ 2017/115CMPS/ShopLyfe/Sh0pLyf3/ShopLyfe/static'      
+# '/home/ubuntu/ShopLyfe/static'
 MEDIA_ROOT = '/plugins/'
 
 LOGIN_REDIRECT_URL = 'home'
