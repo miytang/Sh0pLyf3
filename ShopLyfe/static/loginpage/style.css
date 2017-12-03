@@ -89,9 +89,9 @@ header {
 
 body {
 	font-size: 2em;
-	/*background-image: url("images/paper-bag.jpg");*/
+	background-image: url("images/paper-bag.jpg");
 	background-repeat: repeat-y;
-	background-color: purple;
+	background-color: white;
 	color: white;
 	text-align: center;
 	bottom: 0%;
